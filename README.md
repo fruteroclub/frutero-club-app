@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kiwik - Aplicación para Builders de Frutero Club
 
-## Getting Started
+Kiwik es un tercer espacio digital creado especialmente para los builders de Frutero Club. Esta plataforma está diseñada para fomentar el crecimiento colectivo de nuestra comunidad, permitiendo:
 
-First, run the development server:
+- Compartir conocimientos y experiencias
+- Desarrollar nuevas habilidades
+- Explorar tendencias emergentes
+- Descubrir oportunidades de colaboración
+
+Nuestra visión es crear un ecosistema vibrante donde los builders puedan conectar, aprender y crecer juntos.
+
+## Características
+
+- **Next.js** con App Router para una estructura y enrutamiento óptimos.
+- **Shadcn** para componentes de UI hermosos y reutilizables.
+- **Bun** como runtime para builds más rápidas y mejor rendimiento.
+- Pre-configurado para **Dynamic Wallet** (impulsado por [dynamic.xyz](https://dynamic.xyz)) para manejar la creación y conexión de wallets.
+
+## Primeros Pasos
+
+### Requisitos Previos
+
+- [Node.js](https://nodejs.org/) (Asegúrate de tener Bun instalado como runtime)
+- [Bun](https://bun.sh/docs/installation)
+- [Git](https://git-scm.com/)
+
+### Instalación
+
+1. **Clona el repositorio:**
+
+   ```bash
+   git clone https://github.com/fruteroclub/kiwik.git
+   cd kiwik
+   ```
+
+2. **Instala las dependencias usando Bun:**
+
+   ```bash
+   bun install
+   ```
+
+3. **Configura las variables de entorno:**
+
+   Crea un archivo `.env` en la raíz de tu proyecto y añade las siguientes variables:
+
+   ```plaintext
+   NEXT_PUBLIC_DYNAMIC_API_KEY=tu_dynamic_api_key
+   ```
+
+   Reemplaza `tu_dynamic_api_key` con tu clave API de [dynamic.xyz](https://dynamic.xyz).
+
+### Ejecutando el Proyecto
+
+Para iniciar el servidor de desarrollo, ejecuta:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Esto lanzará la aplicación en `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build y Producción
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para builds de producción, utiliza:
 
-## Learn More
+```bash
+bun run build
+bun run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Estructura del Proyecto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```plaintext
+.
+├── public/          # Archivos estáticos
+├── src/app/         # Páginas y rutas de Next.js
+├── src/components/  # Componentes React personalizados
+├── src/styles/      # Hojas de estilo globales
+├── .env             # Variables de entorno
+├── ...              # ¡Otros archivos de configuración, revisa el repo!
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Integración de Wallet
 
-## Deploy on Vercel
+La plantilla inicial incluye integración con **Dynamic Wallet**, permitiendo una creación y conexión fluida de wallets para los usuarios:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Dynamic.xyz** proporciona una interfaz de usuario fácil de usar para la conexión de wallets.
+- Configuración plug-and-play para conectar con cadenas compatibles con EVM.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contribuciones
+
+¡Damos la bienvenida a las contribuciones! Siéntete libre de enviar issues o pull requests para ayudar a mejorar esta plantilla inicial para la comunidad del hackathon.
+
+## Licencia
+
+Este proyecto es de código abierto y está disponible bajo la [Licencia MIT](LICENSE).
