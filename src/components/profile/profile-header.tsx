@@ -2,14 +2,14 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Card, CardContent } from '@/components/ui/card'
-import type { UserWithRelations } from '@/types/db'
+import type { UserWithProfile } from '@/types/db'
 import { UserCircle2, Link as LinkIcon, MapPin } from 'lucide-react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { toast } from 'sonner'
 
 interface ProfileHeaderProps {
-  user: UserWithRelations
+  user: UserWithProfile
 }
 
 export function ProfileHeader({ user }: ProfileHeaderProps) {

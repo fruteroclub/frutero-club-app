@@ -6,7 +6,7 @@ import type {
 
 export type Profile = PrismaProfile
 
-export interface User extends PrismaUser {
+export interface UserWithProfile extends PrismaUser {
   profile?: Profile | null
 }
 
@@ -15,6 +15,7 @@ export type UserCreateInput = Prisma.UserCreateInput
 
 // Type for updating a user
 export type UserUpdateInput = Prisma.UserUpdateInput
+
 
 // Type for user with all relationships
 export type UserWithRelations = Prisma.UserGetPayload<{

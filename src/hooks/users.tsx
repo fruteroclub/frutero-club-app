@@ -2,6 +2,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { apiClient } from '@/server/apiClient'
 import { User } from '@prisma/client'
 import type { UserWithRelations, UserUpdateInput } from '@/types/db'
+import { getAuthToken } from '@dynamic-labs/sdk-react-core'
 
 // User hooks
 export function useUsers(params?: { page?: number; limit?: number }) {
@@ -40,9 +41,13 @@ async function deleteUser(id: string): Promise<void> {
 }
 
 export function useUser(id: string) {
+  const authToken = getAuthToken()
   return useQuery({
     queryKey: ['user', id],
-    queryFn: () => fetchUser(id),
+    queryFn: async () => {
+      const user = await apiClient.users.getById(id, authToken)
+      return user.data
+    },
     enabled: Boolean(id),
   })
 }

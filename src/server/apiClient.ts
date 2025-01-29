@@ -1,4 +1,5 @@
 import { User, Community, Post } from '@prisma/client'
+import { UserWithProfile, UserWithRelations } from '@/types/db'
 import { Address } from 'viem'
 
 interface ApiClientOptions {
@@ -80,8 +81,12 @@ export class ApiClient {
     getAll: async (params?: PaginationParams) => {
       return this.request<User[]>('/api/users' + this.buildQueryString(params))
     },
-    getById: async (id: string) => {
-      return this.request<User>(`/api/users/${id}`)
+    getById: async (id: string, authToken?: string) => {
+      return this.request<UserWithProfile>(`/api/users/${id}`, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      })
     },
     create: async (data: Omit<User, 'createdAt' | 'updatedAt'>) => {
       return this.request<User>('/api/users', {

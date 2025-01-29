@@ -1,5 +1,6 @@
 import { User, Profile, UserCommunity, UserRole } from '@prisma/client'
 import prisma from '@/server/prismaClient'
+import { UserWithProfile } from '@/types/db'
 
 export type CreateUserDTO = {
   id: string
@@ -13,10 +14,6 @@ export type CreateUserDTO = {
 export type UpdateUserDTO = Partial<
   Omit<User, 'id' | 'createdAt' | 'updatedAt'>
 >
-
-export type UserWithProfile = User & {
-  profile: Profile | null
-}
 
 export class UserService {
   private cache: Map<string, User> = new Map()

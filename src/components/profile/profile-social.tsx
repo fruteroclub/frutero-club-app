@@ -1,11 +1,11 @@
 'use client'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import type { UserWithRelations } from '@/types/db'
+import type { UserWithProfile } from '@/types/db'
 import { Github, Twitter } from 'lucide-react'
 
 interface ProfileSocialProps {
-  user: UserWithRelations
+  user: UserWithProfile
 }
 
 export function ProfileSocial({ user }: ProfileSocialProps) {
