@@ -100,7 +100,7 @@ export function HeroSection({ className }: HeroSectionProps) {
 
             {/* CTAs */}
             <div className="mt-10 hidden md:flex md:gap-2">
-              <AuthButton className="w-2/3 bg-primary text-primary-foreground hover:bg-primary/90">
+              <AuthButton className="bg-primary text-primary-foreground hover:bg-primary/90">
                 {heroContent.cta.primary}
               </AuthButton>
               <Button

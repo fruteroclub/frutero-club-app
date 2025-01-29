@@ -14,7 +14,7 @@ export function Section({ children, className }: SectionProps) {
       className={cn(
         'relative bg-background',
         'flex w-full flex-col items-center justify-center',
-        'px-4 py-8 md:px-8 md:py-12 lg:px-16 lg:py-16 xl:px-20',
+        'px-4 py-8 md:px-8 md:py-12 lg:px-16 lg:py-16 xl:px-24',
         className,
       )}
     >
