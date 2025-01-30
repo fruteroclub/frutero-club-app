@@ -1,4 +1,4 @@
-import { User, Profile, UserCommunity, UserRole } from '@prisma/client'
+import { User, UserCommunity, UserRole } from '@prisma/client'
 import prisma from '@/server/prismaClient'
 import { UserWithProfile } from '@/types/db'
 

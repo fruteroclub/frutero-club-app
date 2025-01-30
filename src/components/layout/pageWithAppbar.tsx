@@ -5,12 +5,8 @@ import Footer from './footer'
 
 const NAVBAR_HEIGHT = '64px' // 5rem / h-20 tw
 
-export interface NavbarProps {
-  title?: string
-  navTitle?: string
-}
 
-const PageWithAppbar: React.FC<NavbarProps & { children: React.ReactNode }> = ({
+const PageWithAppbar: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (

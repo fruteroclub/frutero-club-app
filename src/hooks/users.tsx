@@ -12,12 +12,6 @@ export function useUsers(params?: { page?: number; limit?: number }) {
   })
 }
 
-async function fetchUser(id: string): Promise<UserWithRelations> {
-  const response = await fetch(`/api/users/${id}`)
-  if (!response.ok) throw new Error('Failed to fetch user')
-  return response.json()
-}
-
 async function updateUser(
   id: string,
   data: UserUpdateInput,
