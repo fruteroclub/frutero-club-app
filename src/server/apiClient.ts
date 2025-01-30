@@ -1,5 +1,5 @@
 import { User, Community, Post } from '@prisma/client'
-import { UserWithProfile, UserWithRelations } from '@/types/db'
+import { UserWithProfile } from '@/types/db'
 import { Address } from 'viem'
 
 interface ApiClientOptions {

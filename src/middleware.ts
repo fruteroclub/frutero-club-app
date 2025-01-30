@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { getDynamicCredentials } from './utils/dynamic'
 
 // Helper function to decode base64URL
 function base64UrlDecode(input: string): Uint8Array {
