@@ -180,22 +180,28 @@ export function AlignmentQuiz({ onComplete, className }: AlignmentQuizProps) {
         </motion.h2>
         <motion.p
           variants={animations.item}
-          className="text-center text-foreground"
+          className="text-center text-primary-foreground"
         >
           {quizContent.title}
         </motion.p>
         <motion.p
           variants={animations.item}
-          className="text-lg text-foreground"
+          className="text-lg text-primary-foreground"
         >
           {quizContent.description}
         </motion.p>
-        <motion.p variants={animations.item} className="text-foreground">
+        <motion.p
+          variants={animations.item}
+          className="text-primary-foreground"
+        >
           Como en los grandes RPGs de antaño, antes de empezar tu aventura
           necesitas elegir tu clase. Este quiz te ayudará a descubrir tu
           alineación natural como builder.
         </motion.p>
-        <motion.p variants={animations.item} className="text-foreground">
+        <motion.p
+          variants={animations.item}
+          className="text-primary-foreground"
+        >
           ¿Serás un DEGEN intrépido como Sonic, un REGEN estratégico como Link,
           o un BUILD técnico como Mega Man? ¡Prepárate para construir,
           divertirte y ganar onchain!
@@ -268,7 +274,7 @@ export function AlignmentQuiz({ onComplete, className }: AlignmentQuizProps) {
         initial="hidden"
         animate="show"
         exit="hidden"
-        className="space-y-6"
+        className="space-y-6 text-primary-foreground"
       >
         <motion.h3
           variants={animations.item}
@@ -278,7 +284,7 @@ export function AlignmentQuiz({ onComplete, className }: AlignmentQuizProps) {
         </motion.h3>
         <RadioGroup
           {...register(question.id as keyof QuizFormData, { required: true })}
-          className="space-y-4"
+          className="space-y-4 text-primary-foreground"
         >
           {question.options.map((option) => (
             <motion.div key={option.value} variants={animations.item}>
@@ -312,7 +318,12 @@ export function AlignmentQuiz({ onComplete, className }: AlignmentQuizProps) {
   }
 
   return (
-    <Card className={cn('mx-auto w-full max-w-3xl', className)}>
+    <Card
+      className={cn(
+        'mx-auto w-full max-w-3xl border-none bg-transparent',
+        className,
+      )}
+    >
       <CardContent className="p-6 md:p-10">
         <form onSubmit={handleSubmit(onSubmit)}>
           <AnimatePresence mode="wait">

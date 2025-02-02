@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { AlignmentQuiz } from '@/components/vibes/AlignmentQuiz'
 
 import '../vibes.module.css'
+import { FlickeringGrid } from '@/components/ui/flickering-grid'
 
 interface AlignmentScore {
   DEGEN: number
@@ -23,23 +24,33 @@ export default function VibesCheckPage() {
   }
 
   return (
-    <main className="gradient-background flex min-h-screen items-center justify-center p-4">
+    <div className="bg-backgroundPurple relative flex h-[calc(100vh-64px)] w-full flex-col items-center pt-32">
+      <FlickeringGrid
+        className="absolute inset-0 z-0 size-full"
+        squareSize={4}
+        gridGap={6}
+        color="#6B7280"
+        maxOpacity={0.5}
+        flickerChance={0.25}
+      />
       {!quizCompleted ? (
         <AlignmentQuiz
           onComplete={handleQuizComplete}
-          className="alignment-quiz-card"
+          className="alignment-quiz-card z-10"
         />
       ) : (
-        <div className="text-center">
-          <h2 className="mb-4 text-2xl font-bold">¡Quiz completado!</h2>
-          <p>Tus resultados:</p>
-          <ul>
-            <li>DEGEN: {alignmentScore?.DEGEN}</li>
-            <li>REGEN: {alignmentScore?.REGEN}</li>
-            <li>BUILD: {alignmentScore?.BUILD}</li>
-          </ul>
+        <div className="z-10 space-y-16 text-center text-primary-foreground">
+          <h2 className="text-6xl font-bold text-primary">¡Quiz completado!</h2>
+          <div className="space-y-4">
+            <p className="text-3xl font-medium">Tus resultados:</p>
+            <ul className="text-4xl font-medium text-destructive">
+              <li>DEGEN: {alignmentScore?.DEGEN}</li>
+              <li>REGEN: {alignmentScore?.REGEN}</li>
+              <li>BUILD: {alignmentScore?.BUILD}</li>
+            </ul>
+          </div>
         </div>
       )}
-    </main>
+    </div>
   )
 }
