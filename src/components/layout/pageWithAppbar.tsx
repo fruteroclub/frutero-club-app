@@ -5,7 +5,6 @@ import Footer from './footer'
 
 const NAVBAR_HEIGHT = '64px' // 5rem / h-20 tw
 
-
 const PageWithAppbar: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
@@ -13,7 +12,7 @@ const PageWithAppbar: React.FC<{ children: React.ReactNode }> = ({
     <>
       <Navbar />
       <main
-        className={`min-h-[calc(100vh-64px)] top-[${NAVBAR_HEIGHT}] flex w-full flex-col items-center overflow-x-hidden bg-background`}
+        className={`relative min-h-[calc(100vh-64px)] top-[${NAVBAR_HEIGHT}] flex w-full flex-col items-center overflow-x-hidden bg-background`}
       >
         {children}
       </main>

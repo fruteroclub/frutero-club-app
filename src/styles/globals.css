@@ -16,6 +16,7 @@ body {
   :root {
     --background: 252 29% 97%;
     --foreground: 259 69% 6%;
+    --background-purple: 260 60% 9%;
     --card: 256 60% 95%;
     --card-foreground: 259 69% 6%;
     --popover: 256 60% 95%;
@@ -43,6 +44,7 @@ body {
   .dark {
     --background: 260 60% 9%;
     --foreground: 252 29% 97%;
+    --background-purple: 258 58% 13%;
     --card: 259 40% 15%;
     --card-foreground: 252 29% 97%;
     --popover: 259 40% 15%;

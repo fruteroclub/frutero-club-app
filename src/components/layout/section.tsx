@@ -12,13 +12,14 @@ export function Section({ children, className }: SectionProps) {
   return (
     <section
       className={cn(
-        'relative bg-background',
-        'flex w-full flex-col items-center justify-center',
+        'flex h-[calc(100vh-64px)] w-full flex-col items-center',
         'px-4 py-8 md:px-8 md:py-12 lg:px-16 lg:py-16 xl:px-24',
         className,
       )}
     >
-      {children}
+      <div className="md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg">
+        {children}
+      </div>
     </section>
   )
 }

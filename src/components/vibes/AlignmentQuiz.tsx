@@ -165,45 +165,99 @@ export function AlignmentQuiz({ onComplete, className }: AlignmentQuizProps) {
   const progress = (step / (totalSteps - 1)) * 100
 
   const renderIntroduction = () => (
-    <motion.div
-      variants={animations.container}
-      initial="hidden"
-      animate="show"
-      className="space-y-6"
-    >
-      <motion.h2
-        variants={animations.item}
-        className="text-center text-3xl font-bold"
-      >
-        {quizContent.title}
-      </motion.h2>
-      <motion.p
-        variants={animations.item}
-        className="text-center text-muted-foreground"
-      >
-        {quizContent.description}
-      </motion.p>
+    <>
       <motion.div
-        variants={animations.item}
-        className="grid gap-4 md:grid-cols-3"
+        variants={animations.container}
+        initial="hidden"
+        animate="show"
+        className="mb-8 space-y-6 text-center"
       >
-        {quizContent.alignments.map((alignment) => (
-          <Card key={alignment.type} className="overflow-hidden">
-            <CardContent className="flex flex-col items-center space-y-2 p-6 text-center">
-              <span className="text-4xl">{alignment.emoji}</span>
-              <h3 className="font-semibold">{alignment.tagline}</h3>
-              <p className="text-sm text-muted-foreground">
-                {alignment.description}
-              </p>
-            </CardContent>
-          </Card>
-        ))}
+        <motion.h2
+          variants={animations.item}
+          className="text-center text-3xl font-bold text-primary"
+        >
+          ¡Es peligroso ir solo, toma esto!
+        </motion.h2>
+        <motion.p
+          variants={animations.item}
+          className="text-center text-foreground"
+        >
+          {quizContent.title}
+        </motion.p>
+        <motion.p
+          variants={animations.item}
+          className="text-lg text-foreground"
+        >
+          {quizContent.description}
+        </motion.p>
+        <motion.p variants={animations.item} className="text-foreground">
+          Como en los grandes RPGs de antaño, antes de empezar tu aventura
+          necesitas elegir tu clase. Este quiz te ayudará a descubrir tu
+          alineación natural como builder.
+        </motion.p>
+        <motion.p variants={animations.item} className="text-foreground">
+          ¿Serás un DEGEN intrépido como Sonic, un REGEN estratégico como Link,
+          o un BUILD técnico como Mega Man? ¡Prepárate para construir,
+          divertirte y ganar onchain!
+        </motion.p>
       </motion.div>
-      <motion.div variants={animations.item} className="flex justify-center">
-        <Button onClick={() => setStep(1)}>Comenzar Quiz</Button>
+      <motion.div
+        variants={animations.container}
+        initial="hidden"
+        animate="show"
+        className="space-y-6"
+      >
+        <motion.div variants={animations.item} className="flex justify-center">
+          <Button size="lg" onClick={() => setStep(1)}>
+            Comenzar Quiz
+          </Button>
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </>
   )
+
+  // const renderBuilderAlignments = () => (
+  //   <motion.div
+  //     variants={animations.container}
+  //     initial="hidden"
+  //     animate="show"
+  //     className="space-y-6"
+  //   >
+  //     <motion.h2
+  //       variants={animations.item}
+  //       className="text-center text-3xl font-bold text-primary"
+  //     >
+  //       {quizContent.title}
+  //     </motion.h2>
+  //     <motion.p
+  //       variants={animations.item}
+  //       className="text-center text-foreground"
+  //     >
+  //       {quizContent.description}
+  //     </motion.p>
+  //     <motion.div
+  //       variants={animations.item}
+  //       className="grid gap-4 md:grid-cols-3"
+  //     >
+  //       {quizContent.alignments.map((alignment) => (
+  //         <Card key={alignment.type} className="overflow-hidden">
+  //           <CardContent className="flex flex-col items-center space-y-2 p-6 text-center">
+  //             <span className="text-4xl">{alignment.emoji}</span>
+  //             <h3 className="font-semibold text-secondary">
+  //               {alignment.tagline}
+  //             </h3>
+  //             <p className="text-sm text-foreground">{alignment.description}</p>
+  //           </CardContent>
+  //         </Card>
+  //       ))}
+  //     </motion.div>
+  //     <motion.div variants={animations.item} className="flex justify-center">
+  //       <Button size="lg" onClick={() => setStep(1)}>
+  //         Comenzar Quiz
+  //       </Button>
+  //     </motion.div>
+  //   </motion.div>
+  // )
 
   const renderQuestion = (questionIndex: number) => {
     const question = quizContent.questions[questionIndex - 1]
