@@ -3,7 +3,7 @@
 import type React from 'react'
 import { useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
-import QuestionBlock from '@/components/icons/question-block'
+import { useRouter } from 'next/navigation'
 
 // Animation variants
 const titleVariants = {
@@ -50,47 +50,9 @@ const buttonVariants = {
 //   },
 // }
 
-const ParticleEffect: React.FC = () => {
-  return (
-    <motion.div
-      className="pointer-events-none absolute inset-0"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 2 }}
-    >
-      {[...Array(20)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute h-1 w-1 rounded-full bg-destructive/30"
-          initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-          }}
-          animate={{
-            y: [0, -20, 0],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: Math.random() * 2 + 1,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: 'easeInOut',
-          }}
-        />
-      ))}
-    </motion.div>
-  )
-}
-
-const QuestionMarkDecor: React.FC = () => {
-  return (
-    <div className="absolute select-none text-primary/20">
-      <QuestionBlock className="h-24 w-24" />
-    </div>
-  )
-}
-
-export default function StartPage() {
+export default function VibesStart() {
   const controls = useAnimation()
+  const router = useRouter()
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
@@ -107,7 +69,7 @@ export default function StartPage() {
   }, [controls])
 
   return (
-    <div className="flex h-full justify-center">
+    <div className="z-10 flex h-full justify-center">
       <div className="space-y-16 text-center">
         {/* <QuestionMarkDecor /> */}
         <motion.h1
@@ -122,12 +84,13 @@ export default function StartPage() {
         <div className="flex items-center justify-center gap-x-2 text-3xl font-medium text-primary-foreground">
           Presiona{' '}
           <QuestionBlockButton
-            onClick={() =>
+            onClick={() => {
               controls.start({
                 scale: [1, 1.2, 1],
                 transition: { duration: 0.3 },
               })
-            }
+              router.push('/vibes/check')
+            }}
           />{' '}
           para Iniciar
         </div>
