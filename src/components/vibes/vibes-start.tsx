@@ -39,6 +39,45 @@ const buttonVariants = {
   },
 }
 
+const pressStartVariants = {
+  initial: {
+    opacity: 0,
+    scale: 0.8,
+    y: 30
+  },
+  animate: {
+    opacity: [0, 1, 0], // Flashing effect
+    scale: 1,
+    y: 0,
+    transition: {
+      opacity: {
+        duration: 2.5,
+        repeat: Number.POSITIVE_INFINITY,
+        repeatType: "reverse",
+        ease: "easeInOut"
+      },
+      scale: {
+        duration: 0.6,
+        ease: "easeOut"
+      },
+      y: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  },
+  hover: {
+    scale: 1.1,
+    transition: {
+      duration: 0.2
+    }
+  },
+  tap: {
+    scale: 0.95
+  }
+}
+
+
 // const floatVariants = {
 //   animate: {
 //     y: [0, -10, 0],
@@ -81,7 +120,8 @@ export default function VibesStart() {
           ¿Quieres hackear y subir de nivel?
         </motion.h1>
 
-        <div className="flex items-center justify-center gap-x-2 text-3xl font-medium text-primary-foreground">
+        <motion.div variants={pressStartVariants} initial="initial"
+          animate="animate" className="flex items-center justify-center gap-x-2 text-3xl font-medium text-primary-foreground">
           Presiona{' '}
           <QuestionBlockButton
             onClick={() => {
@@ -93,7 +133,7 @@ export default function VibesStart() {
             }}
           />{' '}
           para Iniciar
-        </div>
+        </motion.div>
       </div>
     </div>
   )

@@ -24,33 +24,34 @@ export default function VibesCheckPage() {
   }
 
   return (
-    <div className="bg-backgroundPurple relative flex h-[calc(100vh-64px)] w-full flex-col items-center pt-32">
+    <div className="bg-backgroundPurple relative flex h-[calc(100vh-64px)] w-full flex-col items-center py-8">
       <FlickeringGrid
         className="absolute inset-0 z-0 size-full"
         squareSize={4}
         gridGap={6}
         color="#6B7280"
-        maxOpacity={0.5}
+        maxOpacity={0.25}
         flickerChance={0.25}
       />
-      {!quizCompleted ? (
-        <AlignmentQuiz
-          onComplete={handleQuizComplete}
-          className="alignment-quiz-card z-10"
-        />
-      ) : (
-        <div className="z-10 space-y-16 text-center text-primary-foreground">
-          <h2 className="text-6xl font-bold text-primary">¡Quiz completado!</h2>
-          <div className="space-y-4">
-            <p className="text-3xl font-medium">Tus resultados:</p>
-            <ul className="text-4xl font-medium text-destructive">
-              <li>DEGEN: {alignmentScore?.DEGEN}</li>
-              <li>REGEN: {alignmentScore?.REGEN}</li>
-              <li>BUILD: {alignmentScore?.BUILD}</li>
-            </ul>
+      <div className="container z-10">
+        {!quizCompleted ? (
+          <AlignmentQuiz
+            onComplete={handleQuizComplete}
+            className="alignment-quiz-card"
+          />
+        ) : (
+          <div className="space-y-16 text-center text-primary-foreground">
+            <h2 className="text-6xl font-bold text-primary">¡Quiz completado!</h2>
+            <div className="space-y-4">
+              <p className="text-3xl font-medium">Tus resultados:</p>
+              <ul className="text-4xl font-medium text-destructive">
+                <li>DEGEN: {alignmentScore?.DEGEN}</li>
+                <li>REGEN: {alignmentScore?.REGEN}</li>
+                <li>BUILD: {alignmentScore?.BUILD}</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      )}
+        )}</div>
     </div>
   )
 }

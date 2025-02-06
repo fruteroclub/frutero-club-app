@@ -17,7 +17,7 @@ export function Section({ children, className }: SectionProps) {
         className,
       )}
     >
-      <div className="md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg">
+      <div className="w-full md:max-w-2xl lg:max-w-3xl xl:max-w-5xl">
         {children}
       </div>
     </section>

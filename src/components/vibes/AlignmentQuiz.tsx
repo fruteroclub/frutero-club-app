@@ -9,6 +9,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
 import { Progress } from '@/components/ui/progress'
+import ImageButton from '../buttons/image-button'
 
 interface AlignmentQuizProps {
   onComplete: (scores: AlignmentScore) => void
@@ -28,7 +29,7 @@ interface QuizFormData {
 }
 
 const quizContent = {
-  title: 'Descubre tu Alineación Builder',
+  title: 'Horóscopo Frutal',
   description:
     'En Frutero Club, cada builder tiene su propia forma de crear impacto. ¿Cuál es la tuya?',
 
@@ -170,20 +171,25 @@ export function AlignmentQuiz({ onComplete, className }: AlignmentQuizProps) {
         variants={animations.container}
         initial="hidden"
         animate="show"
-        className="mb-8 space-y-6 text-center"
+        className="mb-8 space-y-6 text-center text-lg"
+      ><motion.h2
+        variants={animations.item}
+        className="text-center text-4xl font-bold text-primary"
       >
-        <motion.h2
-          variants={animations.item}
-          className="text-center text-3xl font-bold text-primary"
-        >
-          ¡Es peligroso ir solo, toma esto!
+          {quizContent.title}
         </motion.h2>
-        <motion.p
+        {/* <motion.h2
           variants={animations.item}
-          className="text-center text-primary-foreground"
+          className="text-center text-4xl font-bold text-primary"
+        >
+          ¡Es peligroso ir solo! <br />Toma esto.
+        </motion.h2> */}
+        {/* <motion.h4
+          variants={animations.item}
+          className="text-center text-primary-foreground text-xl"
         >
           {quizContent.title}
-        </motion.p>
+        </motion.h4> */}
         <motion.p
           variants={animations.item}
           className="text-lg text-primary-foreground"
@@ -202,9 +208,10 @@ export function AlignmentQuiz({ onComplete, className }: AlignmentQuizProps) {
           variants={animations.item}
           className="text-primary-foreground"
         >
-          ¿Serás un DEGEN intrépido como Sonic, un REGEN estratégico como Link,
-          o un BUILD técnico como Mega Man? ¡Prepárate para construir,
-          divertirte y ganar onchain!
+          ¿Serás un <code className="relative rounded-sm bg-destructive/75 px-[0.3rem] py-[0.2rem] font-mono text-lg font-semibold">???</code> intrépido como Sonic,
+          un <code className="relative rounded-sm bg-destructive/75 px-[0.3rem] py-[0.2rem] font-mono text-lg font-semibold">???</code> estratégico como Link, o un
+          {" "}<code className="relative rounded-sm bg-destructive/75 px-[0.3rem] py-[0.2rem] font-mono text-lg font-semibold">???</code> técnico como Mega Man? ¡Prepárate
+          para construir, divertirte y ganar onchain!
         </motion.p>
       </motion.div>
       <motion.div
@@ -213,10 +220,18 @@ export function AlignmentQuiz({ onComplete, className }: AlignmentQuizProps) {
         animate="show"
         className="space-y-6"
       >
-        <motion.div variants={animations.item} className="flex justify-center">
-          <Button size="lg" onClick={() => setStep(1)}>
+        <motion.div variants={animations.item} className="flex flex-col gap-4 items-start justify-center">
+
+
+          <ImageButton
+            src='/images/blocks/question-block-accent.png'
+            onClick={() => setStep(1)}
+            className="w-16 h-16 md:w-12 md:h-12"
+          />
+
+          {/* <Button size="lg" onClick={() => setStep(1)}>
             Comenzar Quiz
-          </Button>
+          </Button> */}
         </motion.div>
       </motion.div>
     </>
