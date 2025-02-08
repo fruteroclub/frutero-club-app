@@ -12,10 +12,12 @@ export default function Cuenta() {
   const { user: dynamicUser, sdkHasLoaded } = useDynamicContext()
   const { data: user, error, status } = useUser(dynamicUser?.userId ?? '')
 
+  console.log("user", user)
+
   if (status === 'pending' || !sdkHasLoaded) {
     return (
       <Section>
-        <div className="space-y-8">
+        <div className="space-y-6">
           <Skeleton className="h-64 w-full" />
           <Skeleton className="h-48 w-full" />
           <Skeleton className="h-48 w-full" />
@@ -27,7 +29,7 @@ export default function Cuenta() {
   if (error || !user) {
     return (
       <Section>
-        <div className="text-center">
+        <div className="text-center space-y-6">
           <h1 className="text-2xl font-bold">Error cargando el perfil</h1>
           <p className="text-muted-foreground">
             Por favor, inténtalo más tarde
@@ -38,7 +40,7 @@ export default function Cuenta() {
   }
 
   return (
-    <Section className="space-y-4">
+    <Section className="space-y-6">
       <ProfileHeader user={user} />
       <ProfileDetails user={user} />
       <ProfileSocial user={user} />

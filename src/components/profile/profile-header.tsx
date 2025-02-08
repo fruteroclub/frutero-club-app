@@ -31,7 +31,7 @@ export function ProfileHeader({ user }: ProfileHeaderProps) {
             priority
           />
         ) : (
-          <div className="h-full w-full bg-gradient-to-r from-blue-500 to-purple-500" />
+          <div className="h-full w-full bg-gradient-to-r from-muted via-secondary to-primary" />
         )}
       </div>
 
@@ -43,16 +43,20 @@ export function ProfileHeader({ user }: ProfileHeaderProps) {
             <Avatar className="-mt-12 h-24 w-24 border-4 border-background ring-background sm:-mt-16 sm:h-32 sm:w-32">
               <AvatarImage src={user.avatarUrl ?? ''} />
               <AvatarFallback>
-                <UserCircle2 className="h-12 w-12" />
+                <UserCircle2 className="h-14 w-14 text-primary/75" />
               </AvatarFallback>
             </Avatar>
 
-            <div className="space-y-1 px-6 sm:ml-6 sm:mt-0">
-              <h1 className="text-2xl font-bold sm:text-3xl">
-                {user.displayName}
-              </h1>
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+            <div>
+              <div className="px-6 sm:mt-0">
+                <h1 className="text-2xl font-bold sm:text-3xl">
+                  {user.displayName}
+                </h1>
                 <p className="text-foreground">@{user.username}</p>
+              </div>
+
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4 px-2">
+                <h4 className='text-secondary text-lg'>Cuenta</h4>
                 {user.profile?.cityRegion && (
                   <div className="flex items-center gap-1 text-foreground">
                     <MapPin className="h-4 w-4" />
@@ -60,8 +64,7 @@ export function ProfileHeader({ user }: ProfileHeaderProps) {
                   </div>
                 )}
               </div>
-            </div>
-          </div>
+            </div></div>
 
           {/* Action Buttons */}
           <div className="flex gap-2 self-end sm:self-center">
